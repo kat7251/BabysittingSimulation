@@ -96,6 +96,26 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+--- !u!114 &-4894000285117037624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature iPhone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &-4886226126404952179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +216,28 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-3727244288823932212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: iPhone
+  m_EditorClassIdentifier: 
+  features:
+  - {fileID: -4894000285117037624}
+  m_renderMode: 1
+  m_autoColorSubmissionMode: 1
+  m_colorSubmissionModes:
+    m_List: 00000000
+  m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
+  m_optimizeBufferDiscards: 0
+  m_symmetricProjection: 0
 --- !u!114 &-3597932742004561629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,11 +471,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: OpenXR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 01000000070000000d000000
+  Keys: 01000000070000000d00000004000000
   Values:
   - {fileID: 228754412604344380}
   - {fileID: 583052182769343324}
   - {fileID: 679248357284293457}
+  - {fileID: -3727244288823932212}
 --- !u!114 &228754412604344380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +513,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &583052182769343324
@@ -485,27 +529,28 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 4776634183305777394}
-  - {fileID: 4528559559689918624}
+  - {fileID: -4264235259866456991}
+  - {fileID: -6982573667479771465}
+  - {fileID: 3328364106699785107}
+  - {fileID: 2908653600694685603}
+  - {fileID: -3550442508734394047}
+  - {fileID: 8656691221087689336}
   - {fileID: 7613029892080655536}
+  - {fileID: -2467352694769556206}
   - {fileID: 6117447936568343225}
+  - {fileID: -1127886199014870680}
+  - {fileID: -1988296194613352733}
+  - {fileID: 4528559559689918624}
   - {fileID: -3883418818511356143}
   - {fileID: -1900767530269329590}
+  - {fileID: 4776634183305777394}
   - {fileID: -7717468603281803140}
-  - {fileID: 3328364106699785107}
-  - {fileID: -6982573667479771465}
-  - {fileID: 2908653600694685603}
-  - {fileID: -1127886199014870680}
-  - {fileID: -3550442508734394047}
-  - {fileID: -2467352694769556206}
-  - {fileID: 8656691221087689336}
-  - {fileID: -1988296194613352733}
-  - {fileID: -4264235259866456991}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &679248357284293457
@@ -527,6 +572,7 @@ MonoBehaviour:
   m_colorSubmissionModes:
     m_List: 00000000
   m_depthSubmissionMode: 0
+  m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
 --- !u!114 &1058935536999316769
@@ -779,6 +825,9 @@ MonoBehaviour:
   - visibleName: Quest 3
     manifestName: eureka
     enabled: 1
+  - visibleName: Quest 3S
+    manifestName: quest3s
+    enabled: 1
   forceRemoveInternetPermission: 0
   symmetricProjection: 0
   foveatedRenderingApi: 0
@@ -786,6 +835,8 @@ MonoBehaviour:
   optimizeBufferDiscards: 1
   lateLatchingMode: 0
   lateLatchingDebug: 0
+  optimizeMultiviewRenderRegions: 0
+  spacewarpMotionVectorTextureFormat: 0
 --- !u!114 &8096871791009776145
 MonoBehaviour:
   m_ObjectHideFlags: 0
