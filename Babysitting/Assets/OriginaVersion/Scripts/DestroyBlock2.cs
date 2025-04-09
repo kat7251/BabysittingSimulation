@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class DestroyBlock2 : MonoBehaviour
 {
     public GameObject nextObject; // Assign the next object in the sequence
 
-    // Animator animator;
-
+    private AudioSource audioSource; // Reference to AudioSource
 
     private void Start()
     {
-        //animator = GetComponent<Animator>();
-
+        // Get the AudioSource component attached to the same GameObject
+        audioSource = GetComponent<AudioSource>();
 
         if (nextObject != null)
         {
@@ -40,15 +36,17 @@ public class DestroyBlock2 : MonoBehaviour
                 pointCounter.AddPoint();
             }
 
-            //animator.Play("Attack");
+            // Play the sound effect
+            if (audioSource != null && audioSource.clip != null)
+            {
+                //audioSource.Play(); // Play sound without waiting for it to finish
+                audioSource.PlayOneShot(audioSource.clip);  // Alternative to Play()
+            }
 
-            //BlockCounter.gscore += 1;
-
+            // Destroy the object immediately after playing the sound
             Destroy(gameObject);
+
             Debug.Log("Destroyed Object, Next Object Script Activated");
-
-
-
         }
     }
 }
