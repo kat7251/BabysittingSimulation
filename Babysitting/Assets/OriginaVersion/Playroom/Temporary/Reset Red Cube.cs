@@ -5,11 +5,17 @@ public class ObjectReset : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
+    private AudioSource audiosource;
+
+
     void Start()
     {
         // Store the original position and rotation at the start
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+
+        audiosource = GetComponent<AudioSource>();
+
     }
 
     public void ResetObject()
@@ -32,7 +38,13 @@ public class ObjectReset : MonoBehaviour
         if (collision.gameObject.CompareTag("ResetZone"))
         {
             ResetObject();
+
+            if (audiosource != null && audiosource.clip != null)
+            {
+                audiosource.PlayOneShot(audiosource.clip);
+            }
         }
+
     }
 
 }
