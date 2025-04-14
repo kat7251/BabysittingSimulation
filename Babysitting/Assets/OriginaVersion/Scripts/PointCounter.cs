@@ -28,7 +28,7 @@ public class PointCounter : MonoBehaviour
             audiosource.PlayOneShot(audiosource.clip);
         }
 
-        if (pointHUD.Points >= 3)
+        if (pointHUD.Points >= 4)
         {
             TriggerEndGame();
         }
