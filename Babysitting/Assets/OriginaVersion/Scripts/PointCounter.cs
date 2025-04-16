@@ -11,10 +11,14 @@ public class PointCounter : MonoBehaviour
 
     private AudioSource audiosource;
 
+    public GameObject mainCharacter;
+    Animator animator;
 
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
+
+        animator = mainCharacter.GetComponent<Animator>();
     }
 
     // Call this method when an object is destroyed
@@ -30,7 +34,11 @@ public class PointCounter : MonoBehaviour
 
         if (pointHUD.Points >= 4)
         {
+            animator.Play("Take 005");
+
             TriggerEndGame();
+
+            
         }
     }
 

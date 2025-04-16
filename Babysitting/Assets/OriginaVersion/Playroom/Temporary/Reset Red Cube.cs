@@ -7,6 +7,9 @@ public class ObjectReset : MonoBehaviour
 
     private AudioSource audiosource;
 
+    public GameObject mainCharacter;
+    Animator animator;
+
 
     void Start()
     {
@@ -15,6 +18,8 @@ public class ObjectReset : MonoBehaviour
         originalRotation = transform.rotation;
 
         audiosource = GetComponent<AudioSource>();
+
+        animator = mainCharacter.GetComponent<Animator>();
 
     }
 
@@ -38,6 +43,8 @@ public class ObjectReset : MonoBehaviour
         if (collision.gameObject.CompareTag("ResetZone"))
         {
             ResetObject();
+
+            animator.Play("Take 004");
 
             if (audiosource != null && audiosource.clip != null)
             {
