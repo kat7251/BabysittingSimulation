@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 58968213}
   - component: {fileID: 58968212}
   - component: {fileID: 58968214}
+  - component: {fileID: 58968215}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1132,6 +1133,8 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 5732203964ed53c438325cee092d0954, type: 2}
     - {fileID: 11400000, guid: 9990b0a7bca053f42ba127ec3be80a44, type: 2}
+    - {fileID: 11400000, guid: 7f901c32f8ef4cc42a0711d9a01bc9ff, type: 2}
+    - {fileID: 11400000, guid: c7bb00cd5928a1e418509f240f489d72, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1161,6 +1164,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 58968215}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: DisableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 58968215}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: EnableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &58968213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,13 +1212,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58968203}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c51f4153cc33f64b9393ad46240ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grabbableObjects: []
   timeline: {fileID: 1632623456}
+--- !u!114 &58968215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58968203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076cf88dbe46ae94890106bfeb83d444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDirectInteractor: {fileID: 1699997815}
+  rightDirectInteractor: {fileID: 58968211}
+  leftRayInteractor: {fileID: 288252385}
+  rightRayInteractor: {fileID: 877086643}
 --- !u!1 &65133060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,6 +3372,8 @@ GameObject:
   - component: {fileID: 288252384}
   - component: {fileID: 288252383}
   - component: {fileID: 288252382}
+  - component: {fileID: 288252387}
+  - component: {fileID: 288252388}
   m_Layer: 0
   m_Name: Left Ray Interactor
   m_TagString: Untagged
@@ -3970,6 +4019,67 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &288252387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288252380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076cf88dbe46ae94890106bfeb83d444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDirectInteractor: {fileID: 1699997815}
+  rightDirectInteractor: {fileID: 58968211}
+  leftRayInteractor: {fileID: 288252385}
+  rightRayInteractor: {fileID: 877086643}
+--- !u!114 &288252388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288252380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 83310cb1da99d64468d6fda2b7e00bdc, type: 2}
+    - {fileID: 11400000, guid: f869c67dac4a74d4ca632ba1863475d5, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 288252387}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: DisableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 288252387}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: EnableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &290596379
 GameObject:
   m_ObjectHideFlags: 0
@@ -8031,6 +8141,8 @@ GameObject:
   - component: {fileID: 877086642}
   - component: {fileID: 877086641}
   - component: {fileID: 877086640}
+  - component: {fileID: 877086646}
+  - component: {fileID: 877086645}
   m_Layer: 0
   m_Name: Right Ray Interactor
   m_TagString: Untagged
@@ -8676,6 +8788,67 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &877086645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877086638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 83de6957655540c4595084faa48c3331, type: 2}
+    - {fileID: 11400000, guid: ba79cecd95df03b4ebc2101d7937ac84, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 877086646}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: DisableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 877086646}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: EnableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &877086646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877086638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076cf88dbe46ae94890106bfeb83d444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDirectInteractor: {fileID: 1699997815}
+  rightDirectInteractor: {fileID: 58968211}
+  leftRayInteractor: {fileID: 288252385}
+  rightRayInteractor: {fileID: 877086643}
 --- !u!1 &887757269
 GameObject:
   m_ObjectHideFlags: 0
@@ -13626,6 +13799,14 @@ PlayableDirector:
     value: {fileID: 1699997817}
   - key: {fileID: -6163377286938882862, guid: 1f8b187107a391c48b5c97e76bd6cd67, type: 2}
     value: {fileID: 58968212}
+  - key: {fileID: 2233466717264044022, guid: 1f8b187107a391c48b5c97e76bd6cd67, type: 2}
+    value: {fileID: 1699997817}
+  - key: {fileID: -1989656257729223934, guid: 1f8b187107a391c48b5c97e76bd6cd67, type: 2}
+    value: {fileID: 58968212}
+  - key: {fileID: 5839848337787659048, guid: 1f8b187107a391c48b5c97e76bd6cd67, type: 2}
+    value: {fileID: 288252388}
+  - key: {fileID: -7647379734626162142, guid: 1f8b187107a391c48b5c97e76bd6cd67, type: 2}
+    value: {fileID: 877086645}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1632623457
@@ -13955,6 +14136,7 @@ GameObject:
   - component: {fileID: 1699997816}
   - component: {fileID: 1699997817}
   - component: {fileID: 1699997818}
+  - component: {fileID: 1699997819}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -14610,6 +14792,8 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 5529dad2d30d6164a9a1e8a1bec9a0b5, type: 2}
     - {fileID: 11400000, guid: 451e1eaa44dd88f4aad3a91abc1ac671, type: 2}
+    - {fileID: 11400000, guid: f482016ca0b45c94b8fae3204296deeb, type: 2}
+    - {fileID: 11400000, guid: 3e6f3b0ced89e78479168b3b5b464e0f, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -14663,7 +14847,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1699997819}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: DisableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1699997819}
+          m_TargetAssemblyTypeName: DisableControllerGrabbing, Assembly-CSharp
+          m_MethodName: EnableGrabbing
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1699997818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699997807}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c51f4153cc33f64b9393ad46240ede5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbableObjects: []
+  timeline: {fileID: 1632623456}
+--- !u!114 &1699997819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14672,11 +14898,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699997807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c51f4153cc33f64b9393ad46240ede5, type: 3}
+  m_Script: {fileID: 11500000, guid: 076cf88dbe46ae94890106bfeb83d444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabbableObjects: []
-  timeline: {fileID: 1632623456}
+  leftDirectInteractor: {fileID: 1699997815}
+  rightDirectInteractor: {fileID: 58968211}
+  leftRayInteractor: {fileID: 288252385}
+  rightRayInteractor: {fileID: 877086643}
 --- !u!1 &1717987031
 GameObject:
   m_ObjectHideFlags: 0
