@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static UnityEditor.VersionControl.Asset;
 
 
 public class PointCounter : MonoBehaviour
@@ -12,13 +13,13 @@ public class PointCounter : MonoBehaviour
     private AudioSource audiosource;
 
     public GameObject mainCharacter;
-    Animator animator;
+
+    /*public float animDuration;
+    public List<GameObject> states;*/
 
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
-
-        animator = mainCharacter.GetComponent<Animator>();
     }
 
     // Call this method when an object is destroyed
@@ -34,13 +35,24 @@ public class PointCounter : MonoBehaviour
 
         if (pointHUD.Points >= 4)
         {
-            animator.Play("Take 005");
+            FindAnyObjectByType<GirlAnimationSetter>().SetStateActive("Final");
 
             TriggerEndGame();
-
-            
         }
+        /*states.Find(state => state.name == name).SetActive(true);
+        StartCoroutine(StartAnimDelay());*/
     }
+
+    /*IEnumerator StartAnimDelay()
+    {
+        yield return new WaitForSeconds(animDuration);
+        foreach (GameObject go in states)
+        {
+            go.SetActive(false);
+        }
+        states[0].SetActive(true);
+    }*/
+
 
     private void TriggerEndGame()
     {

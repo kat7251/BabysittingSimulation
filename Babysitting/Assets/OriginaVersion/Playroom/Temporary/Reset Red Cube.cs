@@ -8,7 +8,7 @@ public class ObjectReset : MonoBehaviour
     private AudioSource audiosource;
 
     public GameObject mainCharacter;
-    Animator animator;
+    GirlAnimationSetter animator;
 
 
     void Start()
@@ -19,7 +19,7 @@ public class ObjectReset : MonoBehaviour
 
         audiosource = GetComponent<AudioSource>();
 
-        animator = mainCharacter.GetComponent<Animator>();
+        animator = FindAnyObjectByType<GirlAnimationSetter>();
 
     }
 
@@ -44,7 +44,7 @@ public class ObjectReset : MonoBehaviour
         {
             ResetObject();
 
-            animator.Play("Take 004");
+            animator.SetStateActive("Angry");
 
             if (audiosource != null && audiosource.clip != null)
             {

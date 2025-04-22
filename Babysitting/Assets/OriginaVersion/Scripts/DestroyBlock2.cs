@@ -10,7 +10,7 @@ public class DestroyBlock2 : MonoBehaviour
     public AudioSource audioSource; // Reference to AudioSource
 
     public GameObject mainCharacter;
-    Animator animator;
+    GirlAnimationSetter animator;
 
     int pointTotal = 1;
 
@@ -21,7 +21,7 @@ public class DestroyBlock2 : MonoBehaviour
         // Get the AudioSource component attached to the same GameObject
         audioSource = GetComponent<AudioSource>();
 
-        animator = mainCharacter.GetComponent<Animator>();
+        animator = FindAnyObjectByType<GirlAnimationSetter>();
 
         if (nextObject != null)
         {
@@ -33,7 +33,6 @@ public class DestroyBlock2 : MonoBehaviour
 
     public void Update()
     {
-        
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -56,23 +55,21 @@ public class DestroyBlock2 : MonoBehaviour
                 //audioSource.Play(); // Play sound without waiting for it to finish
                 audioSource.PlayOneShot(audioSource.clip);  // Alternative to Play()
             }
-/*
-            if (pointTotal <= 3)
-            {
-                animator.Play("Take 002");
-                Debug.Log("Play 002 animation");
-            }
+            /*
+                        if (pointTotal <= 3)
+                        {
+                            animator.Play("Take 002");
+                            Debug.Log("Play 002 animation");
+                        }
 
-            if (pointTotal >= 4)
-            {
-                animator.Play("Take 005");
-                Debug.Log("Play 005 animation");
-            }
-*/
-           
+                        if (pointTotal >= 4)
+                        {
+                            animator.Play("Take 005");
+                            Debug.Log("Play 005 animation");
+                        }
+            */
             //pointTotal = pointTotal + 1;
-           
-            animator.Play("Take 002");
+            animator.SetStateActive("Take 001");
 
             // Destroy the object immediately after playing the sound
             Destroy(gameObject);
@@ -86,7 +83,7 @@ public class DestroyBlock2 : MonoBehaviour
     /*private void PlayAnimation()
     {
         //if (animator == null) return;
-
+ 
         if (pointTotal <= 3)
         {
             animator.Play("Take 002");
@@ -97,6 +94,6 @@ public class DestroyBlock2 : MonoBehaviour
             animator.Play("Take 005");
             Debug.Log("Play 005 animation");
         }*/
-    }
+}
 
 
